@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&family=Noto+Sans&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #__next {
+    @apply h-full;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.swagger-ui .opblock .opblock-summary-path {
+  max-width: 100% !important;
+}
