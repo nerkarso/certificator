@@ -1,5 +1,6 @@
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import useBuilderProperties from '@/hooks/useBuilderProperties';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 
@@ -15,11 +16,11 @@ function BuilderViewer() {
 
   useEffect(() => {
     setTimeout(() => {
-      setContainer({
-        ...container,
+      setContainer((state) => ({
+        ...state,
         width: canvasRef?.current?.clientWidth,
         height: canvasRef?.current?.clientHeight,
-      });
+      }));
     }, 0);
   }, []);
 
@@ -30,12 +31,13 @@ function BuilderViewer() {
         id="capture"
         ref={canvasRef}
         className="relative shadow-md w-[842px] h-[595px]">
-        <img
+        <Image
           src={
             designContents
               ? `data:image/svg+xml;utf8,${designContents}`
               : '/design-blank.svg'
           }
+          layout="fill"
           alt="Design"
         />
         <Rnd

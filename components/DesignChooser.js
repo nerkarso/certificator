@@ -21,6 +21,7 @@ function DesignChooser({ value, onChange, className }) {
         onChange(filtered[0]);
       }
     }
+    // eslint-disable-next-line
   }, [selected]);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function DesignChooser({ value, onChange, className }) {
         setSelected(data.designs[0]._id);
       }
     }
+    // eslint-disable-next-line
   }, [data]);
 
   if (!data && !error) return <LoadingState className="text-primary-500" />;

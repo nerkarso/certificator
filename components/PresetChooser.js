@@ -20,6 +20,7 @@ function PresetChooser({ value, onChange }) {
         onChange(filtered[0]);
       }
     }
+    // eslint-disable-next-line
   }, [selected]);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function PresetChooser({ value, onChange }) {
         setSelected(data.presets[0]._id);
       }
     }
+    // eslint-disable-next-line
   }, [data]);
 
   if (!data && !error) return <LoadingState className="text-primary-500" />;

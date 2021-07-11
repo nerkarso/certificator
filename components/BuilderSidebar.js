@@ -6,6 +6,7 @@ import FormGroup from '@/elements/FormGroup';
 import FormInput from '@/elements/FormInput';
 import TextArea from '@/elements/TextArea';
 import useBuilderProperties from '@/hooks/useBuilderProperties';
+import Image from 'next/image';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -54,8 +55,8 @@ function BuilderSidebar() {
     <aside className="z-10 flex flex-col h-full transition duration-200 bg-white shadow lg:w-80 xl:w-96 dark:bg-base-800">
       <div className="flex-1 overflow-y-auto">
         <div className="flex items-center m-6 sm:justify-center">
-          <img src="/icon-192.png" alt="Logo" className="w-12 mr-3" />
-          <h2 className="text-3xl font-bold dark:text-white">
+          <Image src="/icon-192.png" width="48" height="48" alt="Logo" />
+          <h2 className="ml-3 text-3xl font-bold dark:text-white">
             {process.env.NEXT_PUBLIC_SITE_TITLE}
           </h2>
         </div>

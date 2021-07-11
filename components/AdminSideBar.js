@@ -3,8 +3,9 @@ import {
   CogIcon,
   CubeTransparentIcon,
   LoginIcon,
-  PhotographIcon
+  PhotographIcon,
 } from '@heroicons/react/solid';
+import Image from 'next/image';
 import Link from 'next/link';
 
 function AdminSideBar() {
@@ -12,7 +13,7 @@ function AdminSideBar() {
     <aside className="relative z-10 flex flex-col flex-shrink-0 py-4 overflow-y-auto lg:h-full flex-grow-1 lg:w-28 bg-primary-800">
       <Link href="/admin">
         <a className="block w-12 mx-auto mt-2 mb-6">
-          <img src="/icon-192.png" alt="Logo" className="w-full" />
+          <Image src="/icon-192.png" width="48" height="48" alt="Logo" />
         </a>
       </Link>
       <nav className="grid grid-flow-col grid-cols-4 gap-2 px-2 mb-2 lg:grid-flow-row lg:grid-cols-1">

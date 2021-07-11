@@ -12,6 +12,7 @@ function FontFamilySelector({ value, onChange }) {
 
   useEffect(() => {
     onChange(selected);
+    // eslint-disable-next-line
   }, [selected]);
 
   return (

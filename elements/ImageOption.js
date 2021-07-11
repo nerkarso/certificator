@@ -1,5 +1,6 @@
 import CheckCircleIcon from '@/elements/CheckCircleIcon';
 import cx from 'classnames';
+import Image from 'next/image';
 import { useState } from 'react';
 
 function ImageOption({ value, checked, width, height }) {
@@ -14,8 +15,9 @@ function ImageOption({ value, checked, width, height }) {
         },
       )}>
       <div className={cx('relative overflow-hidden', width, height)}>
-        <img
+        <Image
           src={imageSource}
+          layout="fill"
           onError={() => setImageSource('/design-blank.svg')}
           className="absolute inset-0 object-cover w-full h-full"
           alt="Design"
