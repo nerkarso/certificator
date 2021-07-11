@@ -1,67 +1,33 @@
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import useBuilderProperties from '@/hooks/useBuilderProperties';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import { Rnd } from 'react-rnd';
 
 function BuilderViewer() {
   const { designContents } = useBuilderProperties();
-  const canvasRef = useRef(null);
-  const [container, setContainer] = useState({
-    width: 0,
-    height: 0,
-    x: 0,
-    y: 0,
-  });
-
-  useEffect(() => {
-    setTimeout(() => {
-      setContainer((state) => ({
-        ...state,
-        width: canvasRef?.current?.clientWidth,
-        height: canvasRef?.current?.clientHeight,
-      }));
-    }, 0);
-  }, []);
 
   return (
     <main className="flex-1 h-full p-6 overflow-auto transition duration-200 bg-base-100 dark:bg-base-900">
       <ThemeSwitcher />
       <div
         id="capture"
-        ref={canvasRef}
-        className="relative shadow-md w-[842px] h-[595px]">
+        className="bg-white relative shadow-md w-[842px] h-[595px]">
         <Image
           src={
             designContents
               ? `data:image/svg+xml;utf8,${designContents}`
               : '/design-blank.svg'
           }
-          layout="fill"
+          width="842"
+          height="595"
           alt="Design"
         />
-        <Rnd
-          size={{ width: container.width, height: container.height }}
-          position={{ x: container.x, y: container.y }}
-          onDragStop={(e, d) => {
-            setContainer({ ...container, x: d.x, y: d.y });
-          }}
-          onResizeStop={(e, direction, ref, delta, position) => {
-            setContainer({
-              ...container,
-              width: ref.style.width,
-              height: ref.style.height,
-              ...position,
-            });
-          }}>
-          <div className="absolute inset-0 z-20 flex items-center justify-center h-full">
-            <div className="text-center">
-              <ReceiverName />
-              <Paragraph />
-              <DateAwarded />
-            </div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center h-full">
+          <div className="text-center">
+            <ReceiverName />
+            <Paragraph />
+            <DateAwarded />
           </div>
-        </Rnd>
+        </div>
       </div>
     </main>
   );
@@ -78,7 +44,10 @@ function ReceiverName() {
       onClick={() => document.querySelector('#inputReceiverName').focus()}
       style={{
         fontSize: settings.receiverFontSize,
-        fontFamily: settings.receiverFontFamily,
+        fontFamily:
+          settings.receiverFontFamily === 'Default'
+            ? 'system-ui, sans-serif'
+            : settings.receiverFontFamily,
         color: settings.receiverFontColor,
       }}>
       {details.receiverName ? details.receiverName : 'Name of the receiver'}

@@ -106,7 +106,7 @@ function BuilderSidebar() {
         </FormGroup>
         <FormGroup label="Receiver font family">
           <FontFamilySelector
-            value={settings?.receiverFontFamily || ''}
+            value={settings?.receiverFontFamily || 'Default'}
             onChange={(value) => setReceiverFontFamily(value)}
           />
         </FormGroup>
