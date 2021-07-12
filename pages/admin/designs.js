@@ -46,7 +46,7 @@ function MasterView() {
     <DesignChooser
       value={masterDetails._id}
       onChange={(item) => setTimeout(() => setMasterDetails(item), 0)}
-      className="lg:grid-cols-2"
+      className="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2"
     />
   );
 }

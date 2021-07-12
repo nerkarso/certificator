@@ -52,10 +52,16 @@ function BuilderSidebar() {
   };
 
   return (
-    <aside className="z-10 flex flex-col h-full transition duration-200 bg-white shadow lg:w-80 xl:w-96 dark:bg-base-800">
+    <aside className="z-10 flex flex-col h-full transition duration-200 bg-white shadow md:w-96 dark:bg-base-800">
       <div className="flex-1 overflow-y-auto">
         <div className="flex items-center m-6 sm:justify-center">
-          <Image src="/icon-192.png" width="48" height="48" alt="Logo" />
+          <Image
+            src="/icon-192.png"
+            width="48"
+            height="48"
+            quality={100}
+            alt="Logo"
+          />
           <h2 className="ml-3 text-3xl font-bold dark:text-white">
             {process.env.NEXT_PUBLIC_SITE_TITLE}
           </h2>
@@ -76,7 +82,7 @@ function BuilderSidebar() {
             onChange={(item) => {
               setDesignContents(item.contents);
             }}
-            className="lg:grid-cols-2"
+            className="grid-cols-2 sm:grid-cols-3 md:grid-cols-2"
             disabled
           />
         </FormGroup>

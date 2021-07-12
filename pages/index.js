@@ -5,7 +5,7 @@ import BuilderPropertiesProvider from '@/context/BuilderPropertiesContext';
 function BuilderPage() {
   return (
     <BuilderPropertiesProvider>
-      <div className="h-full overflow-hidden lg:flex">
+      <div className="h-full overflow-hidden md:flex">
         <BuilderSidebar />
         <BuilderViewer />
       </div>

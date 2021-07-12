@@ -44,10 +44,7 @@ function DesignChooser({ value, onChange, className }) {
     <RadioGroup
       value={selected}
       onChange={setSelected}
-      className={cx(
-        'grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3',
-        className,
-      )}>
+      className={cx('grid gap-4', className)}>
       {data.designs.map((item) => (
         <RadioGroup.Option
           value={item._id}
