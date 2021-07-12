@@ -15,6 +15,7 @@ const defaultValue = {
   setReceiverFontColor: () => {},
   setReceiverFontFamily: () => {},
   setParagraph: () => {},
+  setParagraphMaxWidth: () => {},
   setDateAwarded: () => {},
 };
 
@@ -67,6 +68,12 @@ export default function BuilderPropertiesProvider({ children }) {
           setDetails((state) => ({
             ...state,
             paragraph: value,
+          }));
+        },
+        setParagraphMaxWidth: (value) => {
+          setSettings((state) => ({
+            ...state,
+            paragraphMaxWidth: value,
           }));
         },
         setDateAwarded: (value) => {

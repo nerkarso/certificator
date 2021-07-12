@@ -73,7 +73,7 @@ function Paragraph() {
   return (
     <p
       className="mx-auto transform translate-y-3 text-base-700 font-noto"
-      style={{ maxWidth: settings.paragraphMaxWidth }}>
+      style={{ maxWidth: settings.paragraphMaxWidth || '512px' }}>
       {details.paragraph
         ? details.paragraph
         : 'Reason of awarding the certificate'}

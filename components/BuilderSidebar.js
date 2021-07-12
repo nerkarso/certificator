@@ -25,6 +25,7 @@ function BuilderSidebar() {
     setReceiverFontColor,
     setReceiverFontFamily,
     setParagraph,
+    setParagraphMaxWidth,
     setDateAwarded,
   } = useBuilderProperties();
 
@@ -89,7 +90,6 @@ function BuilderSidebar() {
         <FormGroup label="Receiver name">
           <FormInput
             type="text"
-            id="inputReceiverName"
             value={details?.receiverName || ''}
             onChange={(e) => setReceiverName(e.target.value)}
             placeholder="Name of the receiver"
@@ -118,16 +118,22 @@ function BuilderSidebar() {
         </FormGroup>
         <FormGroup label="Paragraph">
           <TextArea
-            id="inputParagraph"
             value={details?.paragraph || ''}
             onChange={(e) => setParagraph(e.target.value)}
             placeholder="Reason of awarding the certificate"
           />
         </FormGroup>
+        <FormGroup label="Paragraph maximum width">
+          <FormInput
+            type="text"
+            value={settings?.paragraphMaxWidth || ''}
+            onChange={(e) => setParagraphMaxWidth(e.target.value)}
+            placeholder="512px"
+          />
+        </FormGroup>
         <FormGroup label="Date awarded on">
           <FormInput
             type="date"
-            id="inputDateAwarded"
             value={details?.dateAwarded || ''}
             onChange={(e) => setDateAwarded(e.target.value)}
           />
