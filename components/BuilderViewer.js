@@ -1,6 +1,7 @@
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import useBuilderProperties from '@/hooks/useBuilderProperties';
 import Image from 'next/image';
+import { useDraggable } from 'use-draggable';
 
 function BuilderViewer() {
   const { designContents } = useBuilderProperties();
@@ -21,12 +22,12 @@ function BuilderViewer() {
           height="595"
           alt="Design"
         />
-        <div className="absolute inset-0 z-20 flex items-center justify-center h-full">
-          <div className="text-center">
+        <div className="absolute inset-0 z-10 flex items-center justify-center h-full overflow-hidden">
+          <Draggable>
             <ReceiverName />
             <Paragraph />
             <DateAwarded />
-          </div>
+          </Draggable>
         </div>
       </div>
     </main>
@@ -35,20 +36,31 @@ function BuilderViewer() {
 
 export default BuilderViewer;
 
+function Draggable({ children }) {
+  const { targetRef, handleRef } = useDraggable({ controlStyle: true });
+
+  return (
+    <div ref={targetRef}>
+      <div ref={handleRef} className="text-center">
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function ReceiverName() {
   const { details, settings } = useBuilderProperties();
 
   return (
     <h1
-      className="inline-block transform translate-y-3 select-none hover:opacity-75 hover:cursor-pointer"
-      onClick={() => document.querySelector('#inputReceiverName').focus()}
+      className="inline-block transform translate-y-3"
       style={{
-        fontSize: settings.receiverFontSize,
+        fontSize: settings.receiverFontSize || 50,
         fontFamily:
           settings.receiverFontFamily === 'Default'
             ? 'system-ui, sans-serif'
             : settings.receiverFontFamily,
-        color: settings.receiverFontColor,
+        color: settings.receiverFontColor || '#000000',
       }}>
       {details.receiverName ? details.receiverName : 'Name of the receiver'}
     </h1>
@@ -60,9 +72,8 @@ function Paragraph() {
 
   return (
     <p
-      className="mx-auto transform translate-y-3 select-none text-base-700 font-noto hover:opacity-75 hover:cursor-pointer"
-      style={{ maxWidth: settings.paragraphMaxWidth }}
-      onClick={() => document.querySelector('#inputParagraph').focus()}>
+      className="mx-auto transform translate-y-3 text-base-700 font-noto"
+      style={{ maxWidth: settings.paragraphMaxWidth }}>
       {details.paragraph
         ? details.paragraph
         : 'Reason of awarding the certificate'}
@@ -96,15 +107,12 @@ function DateAwarded() {
     return `${day} ${months[monthIndex]} ${year}`;
   };
 
-  if (details.dateAwarded) {
-    return (
-      <p
-        className="transform text-base-700 translate-y-9 font-noto hover:opacity-75 hover:cursor-pointer"
-        onClick={() => document.querySelector('#inputDateAwarded').focus()}>
-        Awarded on {formatDate(details.dateAwarded)}
-      </p>
-    );
-  }
-
-  return null;
+  return (
+    <p className="transform text-base-700 translate-y-9 font-noto">
+      <span>Awarded on </span>
+      <time>
+        {details.dateAwarded ? formatDate(details.dateAwarded) : 'xx xxx xxxx'}
+      </time>
+    </p>
+  );
 }

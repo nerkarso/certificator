@@ -12,7 +12,7 @@ const nullPresetObject = {
     designId: '',
     receiverFontSize: 0,
     receiverFontFamily: '',
-    receiverFontColor: '#000000',
+    receiverFontColor: '',
     paragraphMaxWidth: '',
   },
   createdAt: '',

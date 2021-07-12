@@ -4493,6 +4493,11 @@ url@^0.11.0, url@~0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+use-draggable@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/use-draggable/-/use-draggable-1.5.2.tgz#ddcc928f6d03826eacffdb75ca89a9a85e9d9b98"
+  integrity sha512-irXfw3KXxaSEHxMQR1XWwhEaObxg0XPYxtRMOLiLizLqDnOJ2GacfhkhNO8DdsUK+Pf9+r4U5hlNW64ya5qYcg==
+
 use-subscription@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.5.1.tgz#73501107f02fad84c6dd57965beb0b75c68c42d1"
