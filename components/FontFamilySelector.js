@@ -17,7 +17,7 @@ function FontFamilySelector({ value, onChange }) {
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <div className="relative">
+      <div className="relative dark:text-white">
         <Listbox.Button className="relative w-full py-2 pl-4 pr-10 text-left transition duration-200 bg-white border rounded-lg shadow dark:border-base-600 dark:bg-base-900 border-base-300 focus:outline-none focus:border-primary-500 dark:focus:border-primary-500 focus:ring-1 ring-primary-500">
           <span className="block truncate">{selected}</span>
           <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">

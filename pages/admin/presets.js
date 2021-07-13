@@ -74,7 +74,7 @@ function DetailsView() {
             placeholder="Name of the preset"
           />
         </FormGroup>
-        <h1 className="pt-2 m-6 text-3xl font-bold">Details</h1>
+        <h1 className="pt-2 m-6 text-3xl font-bold dark:text-white">Details</h1>
         <FormGroup label="Receiver name">
           <FormInput
             type="text"
@@ -159,7 +159,9 @@ function DetailsView() {
           />
         </FormGroup>
         <hr className="mx-6 mt-10 border-base-300 dark:border-base-700" />
-        <h1 className="mx-6 mt-8 mb-6 text-3xl font-bold">Settings</h1>
+        <h1 className="mx-6 mt-8 mb-6 text-3xl font-bold dark:text-white">
+          Settings
+        </h1>
         <FormGroup label="Design">
           <DesignChooser
             value={masterDetails?.settings?.designId || ''}
